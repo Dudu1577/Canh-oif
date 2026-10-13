@@ -1,0 +1,19 @@
+name: MedievalCannons
+version: 2.1.1
+main: br.elementalcraft.cannons.MedievalCannons
+api-version: '26.2'
+description: Canhão medieval, barreiras mágicas azul/roxa, receitas e interface interativa.
+author: ElementalCraft BR; TNT de Impulso compatível com TNTReinforced por zSouul
+softdepend: [TNTReinforced]
+commands:
+  canhao:
+    description: Abre e administra canhoes medievais.
+    usage: /canhao [criar|remover|defesa|receitas|ajuda]
+    aliases: [cannon, canhoes]
+permissions:
+  medievalcannons.admin:
+    description: Permite registrar e remover canhoes.
+    default: op
+  medievalcannons.use:
+    description: Permite usar canhoes.
+    default: true
