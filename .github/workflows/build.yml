@@ -1,0 +1,35 @@
+
+name: Build MedievalCannons
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v5
+
+      - name: Configurar Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '25'
+
+      - name: Configurar Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Compilar plugin
+        run: gradle build
+
+      - name: Publicar arquivo JAR
+        uses: actions/upload-artifact@v5
+        with:
+          name: MedievalCannons
+          path: build/libs/*.jar
+          if-no-files-found: error
+          
